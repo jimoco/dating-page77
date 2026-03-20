@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>附近社交应用 - 官方下载</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QP8ZJ348JH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-QP8ZJ348JH');
+</script>
+
+<style>
+:root{--pink:#ff4d88;--pink2:#ff7aa8;--bg:#fff;--card:#fff;--line:#f0d9e4;--text:#222;--muted:#666}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--text)}
+body{-webkit-text-size-adjust:100%}
+.container{width:100%;max-width:430px;margin:0 auto;padding:16px 14px 28px;text-align:center}
+.logo{font-size:24px;font-weight:800;color:var(--pink)}
+.banner img{width:100%;display:block;border-radius:14px;object-fit:cover;aspect-ratio:16/10}
+.title{font-size:22px;line-height:1.35;margin-top:14px;font-weight:800}
+.desc{color:var(--muted);font-size:14px;line-height:1.75;margin:10px 0 16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,0.04);text-align:left;margin-top:14px}
+.question-title{font-size:16px;font-weight:700;color:#333;margin-bottom:12px;line-height:1.5}
+.option-list{display:flex;flex-wrap:wrap;gap:10px}
+.option-btn{border:1px solid #f0c7d7;background:#fff7fb;color:#d63d7b;padding:10px 14px;border-radius:999px;font-size:14px;cursor:pointer;min-height:40px}
+.option-btn:active{transform:scale(.98)}
+.download-box{display:none;margin-top:16px;padding:16px;border-radius:16px;background:#fff7fb;border:1px solid #f3dce7;text-align:center}
+.platform-row{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+.btn{background:var(--pink);color:white;padding:14px 16px;border-radius:26px;font-size:16px;font-weight:700;display:block;text-decoration:none;text-align:center;min-height:48px}
+.btn.secondary{background:var(--pink2)}
+.note{font-size:12px;color:#888;margin-top:10px;line-height:1.7}
+.features{margin:18px 0 0;text-align:left;padding-left:20px}
+.features li{margin-bottom:8px;color:#444;font-size:14px;line-height:1.65}
+.qr{margin-top:20px}
+.qr img{width:160px;max-width:100%;height:auto}
+.footer{font-size:12px;color:#999;margin-top:20px;line-height:1.7}
+.timer{font-size:13px;color:#777;margin-top:8px}
+@media (max-width:360px){
+.container{padding:14px 12px 24px}
+.title{font-size:20px}
+.question-title{font-size:15px}
+.option-btn{font-size:13px;padding:9px 12px}
+.btn{font-size:15px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="logo">社交应用</div>
+
+  <div class="banner">
+    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=800" alt="banner">
+  </div>
+
+  <div class="title">发现附近的人，轻松建立连接</div>
+  <div class="desc">真实用户 · 兴趣社交 · 隐私保护<br>完成简单确认后即可查看下载入口。</div>
+
+  <div class="card">
+    <div class="question-title">问题 1：你所在的城市是？</div>
+    <div class="option-list">
+      <button class="option-btn" onclick="answerCity('北京')">北京</button>
+      <button class="option-btn" onclick="answerCity('上海')">上海</button>
+      <button class="option-btn" onclick="answerCity('广州')">广州</button>
+      <button class="option-btn" onclick="answerCity('深圳')">深圳</button>
+      <button class="option-btn" onclick="answerCity('其他城市')">其他城市</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="question-title">问题 2：是否有兴趣继续了解并下载我们的 APP？</div>
+    <div class="option-list">
+      <button class="option-btn" onclick="answerInterest('有兴趣')">有兴趣</button>
+      <button class="option-btn" onclick="answerInterest('先了解一下')">先了解一下</button>
+      <button class="option-btn" onclick="answerInterest('暂时不需要')">暂时不需要</button>
+    </div>
+    <div class="timer" id="timerText">若未完成回答，5 秒后也会显示下载入口</div>
+  </div>
+
+  <div id="downloadBox" class="download-box">
+    <div style="font-size:16px;font-weight:700;color:#333;">下载入口</div>
+    <div class="platform-row">
+      <a class="btn" href="https://eltt9decnfzm-1366477487.cos.accelerate.myqcloud.com/DH025/pfkpof.lgsekt"
+         onclick="gtag('event','download_click', {platform: 'android'});">
+         下载 Android APK
+      </a>
+
+      <a class="btn secondary" href="https://gsru1m8943.rxxkrr.cn/ip907usz"
+         onclick="gtag('event','download_click', {platform: 'ios'});">
+         前往 iPhone 安装页面
+      </a>
+    </div>
+    <div class="note">请根据你的设备选择对应入口。Android 为 APK 下载，iPhone / iOS 将进入安装分流页面。</div>
+  </div>
+
+  <ul class="features">
+    <li>附近用户推荐</li>
+    <li>即时聊天互动</li>
+    <li>多种兴趣匹配</li>
+    <li>隐私与安全保障</li>
+  </ul>
+
+  <div class="qr">
+    <p>扫码访问</p>
+    <img src="qr.png" alt="下载二维码">
+  </div>
+
+  <div class="footer">© 2026 Social App. All rights reserved.</div>
+</div>
+
+<script>
+let cityAnswered = false;
+let interestAnswered = false;
+let boxShown = false;
+let timeLeft = 5;
+const timerEl = document.getElementById('timerText');
+
+function showDownloadBox(method){
+  if (boxShown) return;
+  boxShown = true;
+  document.getElementById('downloadBox').style.display = 'block';
+  if (typeof gtag === 'function') {
+    gtag('event', 'download_box_show', { method: method });
+  }
+}
+
+function answerCity(city){
+  cityAnswered = true;
+  if (typeof gtag === 'function') {
+    gtag('event', 'answer_city', { city: city });
+  }
+  if (cityAnswered && interestAnswered) {
+    showDownloadBox('answered');
+  }
+}
+
+function answerInterest(choice){
+  interestAnswered = true;
+  if (typeof gtag === 'function') {
+    gtag('event', 'answer_interest', { choice: choice });
+  }
+  if (cityAnswered && interestAnswered) {
+    showDownloadBox('answered');
+  }
+}
+
+const countdown = setInterval(function(){
+  timeLeft -= 1;
+  if (timeLeft > 0) {
+    timerEl.innerText = '若未完成回答，' + timeLeft + ' 秒后也会显示下载入口';
+  } else {
+    timerEl.innerText = '下载入口已显示';
+    clearInterval(countdown);
+    if (!boxShown) {
+      showDownloadBox('timeout_5s');
+    }
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
